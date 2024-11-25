@@ -49,7 +49,7 @@ def generate(inst_text, prompt_text):
  model = genai.GenerativeModel(
   model_name="gemini-1.5-pro",
   generation_config=generation_config,
-  system_instruction=instructions)
+  system_instruction=inst_text)
  
  responses = model.generate_content(prompt_text, stream=True)
  resp_text = ""
