@@ -37,11 +37,11 @@ def generate(inst_text, prompt_text):
   generation_config=generation_config,
   system_instruction=instructions)
  
-  responses = model.generate_content(prompt_text, stream=True)
-  resp_text = ""
-  for response in responses:
-    resp_text = resp_text + response.text
-  return resp_text
+ responses = model.generate_content(prompt_text, stream=True)
+ resp_text = ""
+ for response in responses:
+   resp_text = resp_text + response.text
+ return resp_text
 
 st.title("eIM + Offence Classifier + Summarizer")
 st.write('')
