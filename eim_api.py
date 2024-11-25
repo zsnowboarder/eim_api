@@ -14,7 +14,13 @@ curr_time = int(curr_time)
 api_key = st.secrets["gsc_connections"]["api_key"]
 genai.configure(api_key=api_key)
 
-instructions = "You are good in conversations. You will reply based on input."
+# this is the main instruction
+with open("/mount/src/generative-ai/instructions.txt", "r") as file:
+    instructions = file.read()
+
+# this is the xml instruction
+with open("/mount/src/generative-ai/instructions_xml.txt", "r") as file:
+    instructions_xml = file.read()
 
 # Create the model
 generation_config = {
@@ -25,14 +31,13 @@ generation_config = {
   "response_mime_type": "text/plain",
 }
 
-model = genai.GenerativeModel(
+def generate(inst_text, prompt_text):
+ model = genai.GenerativeModel(
   model_name="gemini-1.5-pro",
   generation_config=generation_config,
-  system_instruction=instructions
-)
-
-def generate(inst_text, prompt_text):
-  responses = model.generate_content("Write a story about a magic backpack.", stream=True)
+  system_instruction=instructions)
+ 
+  responses = model.generate_content(prompt_text, stream=True)
   resp_text = ""
   for response in responses:
     resp_text = resp_text + response.text
