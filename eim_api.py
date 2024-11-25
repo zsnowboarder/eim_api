@@ -15,11 +15,11 @@ api_key = st.secrets["gsc_connections"]["api_key"]
 genai.configure(api_key=api_key)
 
 # this is the main instruction
-with open("/mount/src/generative-ai/instructions.txt", "r") as file:
+with open("/mount/src/eim_api/instructions.txt", "r") as file:
     instructions = file.read()
 
 # this is the xml instruction
-with open("/mount/src/generative-ai/instructions_xml.txt", "r") as file:
+with open("/mount/src/eim_api/instructions_xml.txt", "r") as file:
     instructions_xml = file.read()
 
 # Create the model
