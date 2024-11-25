@@ -32,7 +32,7 @@ model = genai.GenerativeModel(
 )
 
 def generate(inst_text, prompt_text):
-  response = model.generate_content("Write a story about a magic backpack.", stream=True)
+  responses = model.generate_content("Write a story about a magic backpack.", stream=True)
   resp_text = ""
   for response in responses:
     resp_text = resp_text + response.text
