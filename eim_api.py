@@ -77,7 +77,7 @@ if occ_num is None or occ_year is None:
 new_data = st.text_area(""" Enter a narrative or ask me any question about eIM and I will guide you through the naming process. 
 Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
 You can ask me specifically on what naming conventions I was trained on and what else I can do. \nYou don't need to erase the text if I ask you follow up questions. Just keep adding the details required."""
-                        , height=200, value="Victim Jane DOE (1991/02/03) was walking and suspect Bart SIMPSON (1990/01/01) assaulted victim. Witness John BROWN (1989/02/03) called police. PC VA9000 Mary SIM arrived and arrested Bart. Witness provided a statement to police. Suspect was released with conditions of no contact Jane DOE. PC VA9100 Bart BARROW assisted with canvassing in the Collingwood area and found no CCTV.")
+                        , height=200, value="The author is VA9000 Mary SIM. Victim Jane DOE (1991/02/03) was walking and suspect Bart SIMPSON (1990/01/01) assaulted victim. Witness John BROWN (1989/02/03) called police. PC VA9000 Mary SIM arrived and arrested Bart. Witness provided a statement to police. Suspect was released with conditions of no contact Jane DOE. PC VA9100 Bart BARROW assisted with canvassing in the Collingwood area and found no CCTV.")
 
 st.write("Tips: if you want to generate only specific text page, please indicate what you would like to generate. For example, generate a witness statement and a police note with the following details. On Feb 28, 2024, PC 9999 received the following statement from witness Jane DOE. I was walking and I saw.........")
 
@@ -92,7 +92,7 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
 
 if st.button("Generate Report", help="I will generate everything including entities and text pages ready to be sent to CPIC Transcription."):
  placeholder = st.empty()
- placeholder.write("Please be patient as it may take me a few seconds to generate the report with this trial version........")
+ placeholder.write("Please be patient as it may take me a minute or two to generate the xml report with this free version........")
  xml_text = generate_xml()
  placeholder.empty()
  placeholder.write("Completed. You may download the report and import to MRE for further processing.")
