@@ -36,8 +36,8 @@ def preprocess_instruction_text(sys_instructions):
     return processed_text
 
 def generate_xml():
-    instructions_xml = preprocess_instruction_text(instructions_xml)
-    xml_text = generate(instructions_xml, file_num + new_data)
+    sys_instructions = preprocess_instruction_text(instructions_xml)
+    xml_text = generate(sys_instructions, file_num + new_data)
     # replace some variables. this applies to the xml text
     xml_text = xml_text.replace("@year",str(occ_year))
     xml_text = xml_text.replace("@occ_num",str(occ_num))
