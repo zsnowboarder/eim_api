@@ -36,13 +36,18 @@ def preprocess_instruction_text(sys_instructions):
     return processed_text
 
 def generate_xml():
+    instructions_xml = preprocess_instruction_text(instructions_xml)
     xml_text = generate(instructions_xml, file_num + new_data)
-    
     # replace some variables. this applies to the xml text
     xml_text = xml_text.replace("@year",str(occ_year))
     xml_text = xml_text.replace("@occ_num",str(occ_num))
     xml_text = xml_text.replace("```xml","")
     xml_text = xml_text.replace("```", "")
+    xml_start_index = xml_text.find("<?xml")
+    if xml_start_index != -1:
+     xml_text = xml_text[xml_start_index:]
+    else:
+     xml_text = "Unable to generate xml."
     
     return xml_text
  
