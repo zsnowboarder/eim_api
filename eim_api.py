@@ -39,8 +39,8 @@ def generate_xml():
     xml_text = generate(instructions_xml, file_num + new_data)
     
     # replace some variables. this applies to the xml text
-    xml_text = xml_text.replace("@year",occ_year)
-    xml_text = xml_text.replace("@occ_num",occ_num)
+    xml_text = xml_text.replace("@year",str(occ_year))
+    xml_text = xml_text.replace("@occ_num",str(occ_num))
     xml_text = xml_text.replace("```xml","")
     xml_text = xml_text.replace("```", "")
     
