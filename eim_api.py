@@ -31,16 +31,17 @@ generation_config = {
   "response_mime_type": "text/plain",
 }
 def preprocess_instruction_text(sys_instructions):
-    processed_text = sys_instructions.replace("@9999/99/99", str(curr_date))
+    processed_text = sys_instructions.replace("@year",str(occ_year))
+    processed_text = processed_text.replace("@occ_num",str(occ_num))
+    processed_text = processed_text.replace("@9999/99/99", str(curr_date))
     processed_text = processed_text.replace("@9999", str(curr_time))
     return processed_text
 
 def generate_xml():
     sys_instructions = preprocess_instruction_text(instructions_xml)
     xml_text = generate(sys_instructions, file_num + new_data)
+ 
     # replace some variables. this applies to the xml text
-    xml_text = xml_text.replace("@year",str(occ_year))
-    xml_text = xml_text.replace("@occ_num",str(occ_num))
     xml_text = xml_text.replace("```xml","")
     xml_text = xml_text.replace("```", "")
     xml_start_index = xml_text.find("<?xml")
