@@ -39,7 +39,7 @@ def preprocess_instruction_text(sys_instructions):
 
 def generate_xml():
     if not file_num:
-     st.warning("A file number is required to generate the xml file.")
+     st.warning("A file number is required to generate the proper xml file.")
 
     sys_instructions = preprocess_instruction_text(instructions_xml)
     xml_text = generate(sys_instructions, file_num + new_data)
