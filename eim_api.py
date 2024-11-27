@@ -1,13 +1,15 @@
 import streamlit as st
 import datetime
 import pytz
+import xml.etree.ElementTree as ET
 import google.generativeai as genai
 # get current date and time
  
 timezone = pytz.timezone('America/Vancouver')
-today = datetime.date.today()
-curr_date = today.strftime("%Y-%m-%d")
-now = datetime.datetime.now()
+#today = datetime.date.today()
+now = datetime.datetime.now(timezone)
+#curr_date = today.strftime("%Y-%m-%d")
+curr_date = now.strftime("%Y-%m-%d")
 curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
