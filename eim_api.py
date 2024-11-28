@@ -90,6 +90,7 @@ occ_year = st.number_input("GO Year (mandatory)", value=None,  min_value=2000, m
 occ_num = st.number_input("GO Number (mandatory)", value=None, min_value=1, max_value=500000)
 file_num = "File number: " + str(occ_year) + "-" + str(occ_num) + " "
 if occ_num is None or occ_year is None:
+ file_num = "" 
  
 new_data = st.text_area(""" Enter a narrative or ask me any question about eIM and I will guide you through the naming process. 
 Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
