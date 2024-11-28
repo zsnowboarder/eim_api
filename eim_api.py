@@ -81,7 +81,7 @@ def is_xml_compliant(xml_string):
 # PROGRAM BEGIN
 
 st.write(curr_date)
-st.image("/mount/src/eim_api/abstract representation of AI assisting police department.png")
+st.image("/mount/src/eim_api/abstract representation of AI assisting police department.png", width=200, height=200)
 #st.title("eIM + Offence Classifier + Summarizer")
 st.markdown("<h3><span style='color: blue;'>eIM + Offence Classifier + Summarizer + MORE</h3></span>", unsafe_allow_html=True)
 st.write('')
