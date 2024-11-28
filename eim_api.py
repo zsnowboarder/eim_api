@@ -97,9 +97,9 @@ new_data = st.text_area("""Enter a narrative or ask me any question about eIM an
 Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
 You can ask me specific questions. \nYou don't need to erase the text if I ask you follow up questions. Just keep adding the details required. 
 Example questions:\n
-&nbsp;&nbsp;&nbsp;***What naming conventions were you trained on?*** \n
-&nbsp;&nbsp;&nbsp;***What else can you do beside naming conventions?*** \n
-&nbsp;&nbsp;&nbsp;***What is the naming convention for use of force?***"""
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***What naming conventions were you trained on?*** \n
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***What else can you do beside naming conventions?*** \n
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***What is the naming convention for use of force?***"""
                         , height=200, value="The author is VA9000 Mary SIM. Victim Jane DOE (1991/02/03) was walking and suspect Bart SIMPSON (1990/01/01) assaulted victim. Witness John BROWN (1989/02/03) called police. PC VA9000 Mary SIM arrived and arrested Bart. Witness provided a statement to police. Suspect was released with conditions of no contact Jane DOE. PC VA9100 Bart BARROW assisted with canvassing in the Collingwood area and found no CCTV.")
 
 st.write("***Tips: if you want to generate only specific text page, please indicate what you would like to generate. For example, generate a witness statement and a police note with the following details. On Feb 28, 2024, PC 9999 received the following statement from witness Jane DOE. I was walking and I saw.........***")
