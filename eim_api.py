@@ -95,7 +95,7 @@ if occ_num is None or occ_year is None:
 new_data = st.text_area(""" Enter a narrative or ask me any question about eIM and I will guide you through the naming process. 
 Although my training is limited, I am the proof of concept that AI can assist with multiple tasks at once.
 You can ask me specific questions. \nYou don't need to erase the text if I ask you follow up questions. Just keep adding the details required. 
-Example questions:
+Example questions:\n
 What naming conventions were you trained on? \n
 What else can you do beside naming conventions? \n
 What is the naming convention for use of force?"""
