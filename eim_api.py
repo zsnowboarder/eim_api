@@ -49,7 +49,7 @@ def generate_xml():
      st.warning("A file number is required to generate the proper xml file.")
 
     sys_instructions = preprocess_instruction_text(instructions_xml)
-    xml_text = generate(sys_instructions, file_num + new_data)
+    xml_text = generate(sys_instructions, file_num + new_data, start_time)
  
     # replace some variables. this applies to the xml text
     xml_text = xml_text.replace("```xml","")
@@ -62,12 +62,8 @@ def generate_xml():
     
     return xml_text
  
-def generate(inst_text, prompt_text):
- global start_time
+def generate(inst_text, prompt_text, start_time):
  elapsed_time = time.time() - start_time
- st.write(elapsed_time)
- st.write(time.time())
- st.write(start_time)
  if elapsed_time > 0.017528057098388672:
   model = genai.GenerativeModel(
    model_name="gemini-1.5-pro",
@@ -123,7 +119,7 @@ st.write("***Tips: if you want to generate only specific text page, please indic
 if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder = st.empty()
     placeholder.write("Please be patient as it may take me a minute or two to generate a response with this free version........")
-    result = generate(instructions, file_num + new_data)
+    result = generate(instructions, file_num + new_data, start_time)
     placeholder.empty()
     #placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
