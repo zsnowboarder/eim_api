@@ -1,5 +1,6 @@
 import streamlit as st
 import datetime
+import time
 import pytz
 import xml.etree.ElementTree as ET
 import google.generativeai as genai
@@ -12,6 +13,8 @@ now = datetime.datetime.now(timezone)
 curr_date = now.strftime("%Y-%m-%d")
 curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
+elapsed_time = 0
+start_time = 0
 
 api_key = st.secrets["gsc_connections"]["api_key"]
 genai.configure(api_key=api_key)
@@ -60,15 +63,22 @@ def generate_xml():
     return xml_text
  
 def generate(inst_text, prompt_text):
- model = genai.GenerativeModel(
-  model_name="gemini-1.5-pro",
-  generation_config=generation_config,
-  system_instruction=inst_text)
- 
- responses = model.generate_content(prompt_text, stream=True)
- resp_text = ""
- for response in responses:
-   resp_text = resp_text + response.text
+ elapsed_time = timer.timer() - start_time
+ if elapsed_time > 60:
+  model = genai.GenerativeModel(
+   model_name="gemini-1.5-pro",
+   generation_config=generation_config,
+   system_instruction=inst_text)
+  
+  responses = model.generate_content(prompt_text, stream=True)
+  resp_text = ""
+  start_time = timer.timer()
+  
+  for response in responses:
+    resp_text = resp_text + response.text
+ else:
+  resp_text = "Please wait a bit before making another request. Thank you!"
+  
  return resp_text
 
 def is_xml_compliant(xml_string):
