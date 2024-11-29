@@ -83,7 +83,7 @@ def is_xml_compliant(xml_string):
 def wait(sec=60):
  placeholdertime = st.empty()
  while True:
-  sleep(1)
+  time.sleep(1)
   sec = sec - 1
   placeholdertime = st.write("Next request: " + str(sec))
   if sec <= 0:
