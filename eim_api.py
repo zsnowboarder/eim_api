@@ -65,9 +65,7 @@ def generate_xml():
 def generate(inst_text, prompt_text):
  global start_time
  elapsed_time = time.time() - start_time
- time.sleep(3)
- st.write(elapsed_time)
- if elapsed_time > 60:
+ if elapsed_time > 0.017528057098388672:
   model = genai.GenerativeModel(
    model_name="gemini-1.5-pro",
    generation_config=generation_config,
@@ -75,12 +73,11 @@ def generate(inst_text, prompt_text):
   
   responses = model.generate_content(prompt_text, stream=True)
   resp_text = ""
-  start_time = time.time()
   
   for response in responses:
     resp_text = resp_text + response.text
  else:
-    resp_text = "Please wait a bit before making another request. Thank you! " + str(elapsed_time)
+    resp_text = "Please wait for at least one minute before making another request with this free version. Thank you! " 
   
  return resp_text
 
