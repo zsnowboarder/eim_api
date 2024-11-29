@@ -85,9 +85,9 @@ def wait(sec=60):
  while True:
   time.sleep(1)
   sec = sec - 1
-  placeholdertime = st.write("Next request: " + str(sec))
+  placeholdertime.write("Next request: " + str(sec))
   if sec <= 0:
-   placeholdeertime = st.empty()
+   placeholdeertime.empty
    break
 # PROGRAM BEGIN
 
