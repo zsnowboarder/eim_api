@@ -14,9 +14,6 @@ curr_date = now.strftime("%Y-%m-%d")
 curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
-go = True
-start_time = time.time()
-
 api_key = st.secrets["gsc_connections"]["api_key"]
 genai.configure(api_key=api_key)
 
@@ -64,21 +61,16 @@ def generate_xml():
     return xml_text
  
 def generate(inst_text, prompt_text, start_time):
- elapsed_time = time.time() - start_time
- if go == True:
-  model = genai.GenerativeModel(
-   model_name="gemini-1.5-pro",
-   generation_config=generation_config,
-   system_instruction=inst_text)
+ model = genai.GenerativeModel(
+  model_name="gemini-1.5-pro",
+  generation_config=generation_config,
+  system_instruction=inst_text)
   
-  responses = model.generate_content(prompt_text, stream=True)
-  resp_text = ""
+ responses = model.generate_content(prompt_text, stream=True)
+ resp_text = ""
   
-  for response in responses:
-    resp_text = resp_text + response.text
- else:
-    resp_text = "Please wait for at least one minute before making another request with this free version. Thank you! " 
-  
+ for response in responses:
+   resp_text = resp_text + response.text
  return resp_text
 
 def is_xml_compliant(xml_string):
@@ -88,6 +80,15 @@ def is_xml_compliant(xml_string):
     except ET.ParseError:
         return "Sorry, I made a mistake in the XML. Please try again."
 
+def wait(sec=60):
+ placeholdertime = st.empty()
+ while True:
+  sleep(1)
+  sec = sec - 1
+  placeholdertime = st.write("Next request: " + str(sec))
+  if sec <= 0:
+   placeholdeertime = st.empty()
+   break
 # PROGRAM BEGIN
 
 st.write(curr_date)
@@ -123,6 +124,7 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     placeholder.empty()
     #placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
+    wait()
 
 if st.button("Generate  XML File", help="I will generate everything including entities and text pages ready to be sent to CPIC Transcription."):
  placeholder = st.empty()
