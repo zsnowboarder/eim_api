@@ -63,7 +63,7 @@ def generate_xml():
     return xml_text
  
 def generate(inst_text, prompt_text):
- elapsed_time = timer.timer() - start_time
+ elapsed_time = time.time() - start_time
  if elapsed_time > 60:
   model = genai.GenerativeModel(
    model_name="gemini-1.5-pro",
@@ -72,7 +72,7 @@ def generate(inst_text, prompt_text):
   
   responses = model.generate_content(prompt_text, stream=True)
   resp_text = ""
-  start_time = timer.timer()
+  start_time = time.time()
   
   for response in responses:
     resp_text = resp_text + response.text
