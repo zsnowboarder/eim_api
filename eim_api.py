@@ -78,7 +78,7 @@ def generate(inst_text, prompt_text):
   for response in responses:
     resp_text = resp_text + response.text
  else:
-    resp_text = "Please wait a bit before making another request. Thank you! " 
+    resp_text = "Please wait a bit before making another request. Thank you! " + str(elapsed_time)
   
  return resp_text
 
