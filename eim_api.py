@@ -80,7 +80,7 @@ def is_xml_compliant(xml_string):
     except ET.ParseError:
         return "Sorry, I made a mistake in the XML. Please try again."
 
-def wait(sec=60):
+def wait(sec=35):
  placeholdertime = st.empty()
  while True:
   time.sleep(1)
