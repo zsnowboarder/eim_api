@@ -65,7 +65,7 @@ def generate_xml():
  
 def generate(inst_text, prompt_text, start_time):
  elapsed_time = time.time() - start_time
- if go = True:
+ if go == True:
   model = genai.GenerativeModel(
    model_name="gemini-1.5-pro",
    generation_config=generation_config,
