@@ -13,8 +13,8 @@ now = datetime.datetime.now(timezone)
 curr_date = now.strftime("%Y-%m-%d")
 curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
-elapsed_time = 0
-start_time = 0
+elapsed_time = time.time()
+start_time = time.time()
 
 api_key = st.secrets["gsc_connections"]["api_key"]
 genai.configure(api_key=api_key)
