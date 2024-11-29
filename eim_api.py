@@ -63,6 +63,7 @@ def generate_xml():
     return xml_text
  
 def generate(inst_text, prompt_text):
+ global start_time
  elapsed_time = time.time() - start_time
  if elapsed_time > 60:
   model = genai.GenerativeModel(
