@@ -14,6 +14,7 @@ curr_date = now.strftime("%Y-%m-%d")
 curr_time = now.strftime("%H%M")
 curr_time = int(curr_time)
 
+go = True
 start_time = time.time()
 
 api_key = st.secrets["gsc_connections"]["api_key"]
@@ -64,7 +65,7 @@ def generate_xml():
  
 def generate(inst_text, prompt_text, start_time):
  elapsed_time = time.time() - start_time
- if elapsed_time > 0.017528057098388672:
+ if go = True:
   model = genai.GenerativeModel(
    model_name="gemini-1.5-pro",
    generation_config=generation_config,
