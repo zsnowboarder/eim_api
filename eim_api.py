@@ -73,6 +73,7 @@ def generate(inst_text, prompt_text):
   
   responses = model.generate_content(prompt_text, stream=True)
   resp_text = ""
+  start_time = time.time()
   
   for response in responses:
     resp_text = resp_text + response.text
