@@ -125,6 +125,7 @@ if st.button("Generate Response", help="Generate eIM based on the input text."):
     #placeholder.write("With this proof of concept, it is possible to use AI to reduce the repetive tasks and put officers back on the road. I can help add entities and text pages using details extracted from the officer's narrative. The possibilities are endless.")
     st.text_area("Response", result, height=800)
     wait()
+    st.cache_data.clear()
 
 if st.button("Generate  XML File", help="I will generate everything including entities and text pages ready to be sent to CPIC Transcription."):
  placeholder = st.empty()
@@ -141,5 +142,6 @@ if st.button("Generate  XML File", help="I will generate everything including en
   data = xml_text,
   file_name="ai_report.xml",
   mime="text/plain")
+  st.cache_data.clear()
 
 
